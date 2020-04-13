@@ -1,0 +1,1042 @@
+
+BlocklyJavascriptTypeScript
+Protokoll
+Ausgewählte Blöcke exportieren
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables>
+    <variable type="" id="av5B?{]@ba!hn,O4k.?{">WaMa_Aus seit</variable>
+    <variable type="" id="=?OmOeJXP(6k$Q8a4v1*">WaMa_Dauerzaehler</variable>
+    <variable type="" id="Hhe!Hg(xh7gHuy(6hLlx">WaMa_EinAus</variable>
+    <variable type="undefined" id="Dauerzaehler">Dauerzaehler</variable>
+    <variable type="undefined" id="timeout4">timeout4</variable>
+    <variable type="undefined" id="timeout2">timeout2</variable>
+    <variable type="undefined" id="timeout3">timeout3</variable>
+    <variable type="undefined" id="Dauerzaehler2">Dauerzaehler2</variable>
+    <variable type="undefined" id="Intervall">Intervall</variable>
+  </variables>
+  <block type="comment" id="v(G,}[E5Ni@#c!a~ZHtO" x="113" y="62">
+    <field name="COMMENT">Variablen auf 0</field>
+    <next>
+      <block type="variables_set" id="{;ioa@:Rx#H513M(03#x">
+        <field name="VAR" id="av5B?{]@ba!hn,O4k.?{" variabletype="">WaMa_Aus seit</field>
+        <value name="VALUE">
+          <block type="math_number" id="lz$}6J,d04l#Kc~,nAsp">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="VhvVE3UkVJB2fvjGzu*!">
+            <field name="VAR" id="=?OmOeJXP(6k$Q8a4v1*" variabletype="">WaMa_Dauerzaehler</field>
+            <value name="VALUE">
+              <block type="math_number" id="g,Bx,*s}7,][vN=Z-Mt4">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="i@;~wXOo)(5+=$*9v:QF">
+                <field name="VAR" id="Hhe!Hg(xh7gHuy(6hLlx" variabletype="">WaMa_EinAus</field>
+                <value name="VALUE">
+                  <block type="logic_boolean" id="stD7DD67D[4(YSQ3dCvR">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="comment" id="xHL/y73zeyCPFdV!Q$/,">
+                    <field name="COMMENT">Funktion</field>
+                    <next>
+                      <block type="on_ext" id="%l??Ns0%ZOhlZQJn)RIY">
+                        <mutation items="1"></mutation>
+                        <field name="CONDITION">ne</field>
+                        <field name="ACK_CONDITION"></field>
+                        <value name="OID0">
+                          <shadow type="field_oid" id="8p+iN2CjzC1M$2o|Xq=m">
+                            <field name="oid">tuya.0.12716401ecfabc93ce26.105</field>
+                          </shadow>
+                        </value>
+                        <statement name="STATEMENT">
+                          <block type="comment" id="ETx:NXLQw*xvJF}A-#!.">
+                            <field name="COMMENT">Mehr als 1W = an</field>
+                            <next>
+                              <block type="controls_if" id="-4y,4m5H6`8[U,UjJH(0">
+                                <mutation elseif="1"></mutation>
+                                <value name="IF0">
+                                  <block type="logic_operation" id="-^U__L=#GGG_LD~6o~hg" inline="false">
+                                    <field name="OP">AND</field>
+                                    <comment pinned="false" h="90" w="276">Falls Maschinengang erkannt (Wattzahl &gt;10) UND Modus ist auf falsch dann starte und schreibe den aktuellen verbrauch in DP</comment>
+                                    <value name="A">
+                                      <block type="logic_compare" id="-%Kg)H+S;{}Yyd@cqe=l">
+                                        <field name="OP">GTE</field>
+                                        <value name="A">
+                                          <block type="on_source" id="QS5)==Ahwtfe.nNTl`R@">
+                                            <field name="ATTR">state.val</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="OT1x**T)z3hCtGxhqDDI">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="logic_compare" id=",LW+*+gUB/lbO[yiNJdv">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="[$/1md}o9xogfLp*!}WA">
+                                            <field name="VAR" id="Hhe!Hg(xh7gHuy(6hLlx" variabletype="">WaMa_EinAus</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="logic_boolean" id="V}KP*,b;J,.3q802Q0l^">
+                                            <field name="BOOL">FALSE</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="variables_set" id="HHIFm}6:*U#VVrIRv7e|">
+                                    <field name="VAR" id="Hhe!Hg(xh7gHuy(6hLlx" variabletype="">WaMa_EinAus</field>
+                                    <value name="VALUE">
+                                      <block type="logic_boolean" id="%.`!o$LmcZOm0##5WWoJ">
+                                        <field name="BOOL">TRUE</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="comment" id="}tL}a}WCQ(Pe@aIPDV{j">
+                                        <field name="COMMENT">Zählen der Laufzeit</field>
+                                        <next>
+                                          <block type="timeouts_setinterval" id="(?2yHN!soJ=}mLZ7l]lF">
+                                            <field name="NAME">Dauerzaehler</field>
+                                            <field name="INTERVAL">1</field>
+                                            <field name="UNIT">min</field>
+                                            <statement name="STATEMENT">
+                                              <block type="math_change" id="w,FoLyTV8R1TP-!PMN(k">
+                                                <field name="VAR" id="=?OmOeJXP(6k$Q8a4v1*" variabletype="">WaMa_Dauerzaehler</field>
+                                                <value name="DELTA">
+                                                  <shadow type="math_number" id="H!-!N4kZhgP#5;zrxCTY">
+                                                    <field name="NUM">1</field>
+                                                  </shadow>
+                                                  <block type="math_number" id="AF2;r}gdm2RpvV`mn)fr">
+                                                    <field name="NUM">1</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </statement>
+                                            <next>
+                                              <block type="comment" id=";bDFi2n_w~jSUftOdO[f">
+                                                <field name="COMMENT">Stop Timeout-Fertig</field>
+                                                <next>
+                                                  <block type="timeouts_cleartimeout" id="LEz@]enWtD(uB`xDW5`O">
+                                                    <field name="NAME">timeout2</field>
+                                                    <next>
+                                                      <block type="comment" id="j5IPEw}xf;OPVqM(6mls">
+                                                        <field name="COMMENT">Fertig aber nicht aus:</field>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                                <value name="IF1">
+                                  <block type="logic_operation" id="[:7QWv4Op8S6o@lG45(y" inline="false">
+                                    <field name="OP">AND</field>
+                                    <comment pinned="false" h="80" w="160">Falls Verbrauch unter 3 Watt fällt und der Modus ist Wahr dann beende den Waschmodus.</comment>
+                                    <value name="A">
+                                      <block type="logic_operation" id="{/K;~z=Kv#ceeBiW`l_K" inline="false">
+                                        <field name="OP">AND</field>
+                                        <comment pinned="false" h="80" w="160">Falls Verbrauch unter 3 Watt fällt und der Modus ist Wahr dann beende den Waschmodus.</comment>
+                                        <value name="A">
+                                          <block type="logic_compare" id="igy_8vlVI|k$sL-O!_Ya">
+                                            <field name="OP">LT</field>
+                                            <value name="A">
+                                              <block type="on_source" id="oKi^o%$Qa%i0^MVE?s)Y">
+                                                <field name="ATTR">state.val</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="math_number" id="*bx}yjZ_C7J2#/$NzLoS">
+                                                <field name="NUM">1</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="logic_compare" id="A|di)R_@tqCA%RMe|;lO">
+                                            <field name="OP">GT</field>
+                                            <value name="A">
+                                              <block type="on_source" id="5R]%@cw$4LILkJ%LKXEL">
+                                                <field name="ATTR">state.val</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="math_number" id="J8U1UDRMr$7KnC`gf}Ki">
+                                                <field name="NUM">0.1</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="logic_compare" id="}A,!m2TVXL.^LQWg%!e|">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="r/rnzWL?1!/.2!+pr@5(">
+                                            <field name="VAR" id="Hhe!Hg(xh7gHuy(6hLlx" variabletype="">WaMa_EinAus</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="logic_boolean" id="S,c^%F*KOd(.(Q(BL!=g">
+                                            <field name="BOOL">TRUE</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO1">
+                                  <block type="variables_set" id="vj!Vu=sDr5yt.:ZU#OfU">
+                                    <field name="VAR" id="Hhe!Hg(xh7gHuy(6hLlx" variabletype="">WaMa_EinAus</field>
+                                    <value name="VALUE">
+                                      <block type="logic_boolean" id="5xCJ(QRB3mIo5.*f1Fsg">
+                                        <field name="BOOL">FALSE</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="debug" id="~(eEE8/,iS{wG@j0X)TU">
+                                        <field name="Severity">log</field>
+                                        <value name="TEXT">
+                                          <shadow type="text" id="3K0c5WSS9VmMq/XFB(e9">
+                                            <field name="TEXT">test</field>
+                                          </shadow>
+                                          <block type="text_join" id="2xby$^zDuX^$?-Yp2~k,">
+                                            <mutation items="2"></mutation>
+                                            <value name="ADD0">
+                                              <block type="text" id="L6trfC]%tV;Q1#[_3UQJ">
+                                                <field name="TEXT">Status Waschmaschine Ein/Aus ist: </field>
+                                              </block>
+                                            </value>
+                                            <value name="ADD1">
+                                              <block type="variables_get" id="mN7^USWq(%,us)OL?!1#">
+                                                <field name="VAR" id="Hhe!Hg(xh7gHuy(6hLlx" variabletype="">WaMa_EinAus</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="comment" id="F)K,eLWl2M_R([dyIAP_">
+                                            <field name="COMMENT">Maschine muss 5 Minuten fertig sein</field>
+                                            <next>
+                                              <block type="timeouts_settimeout" id=",NjGW@Wtt+n7RKNkcxK!">
+                                                <field name="NAME">timeout2</field>
+                                                <field name="DELAY">5</field>
+                                                <field name="UNIT">min</field>
+                                                <statement name="STATEMENT">
+                                                  <block type="timeouts_clearinterval" id="4Usl2WULucSJQ,Ptrt9^">
+                                                    <field name="NAME">Dauerzaehler</field>
+                                                    <next>
+                                                      <block type="math_change" id="/fo]TB]=k[`h;vlK7Rl|">
+                                                        <field name="VAR" id="av5B?{]@ba!hn,O4k.?{" variabletype="">WaMa_Aus seit</field>
+                                                        <value name="DELTA">
+                                                          <shadow type="math_number" id="U0:8e}beFtvZW%MRWE/J">
+                                                            <field name="NUM">-5</field>
+                                                          </shadow>
+                                                        </value>
+                                                        <next>
+                                                          <block type="control" id="J*yfAt]vZ5O)I[BX:P?5">
+                                                            <mutation delay_input="false"></mutation>
+                                                            <field name="OID">alexa2.0.Echo-Devices.4e6ce9cd03f54d09a11bd482850c85ea.Commands.speak</field>
+                                                            <field name="WITH_DELAY">FALSE</field>
+                                                            <value name="VALUE">
+                                                              <block type="text" id=",~(ET{+~=VkugD5yaa=b">
+                                                                <field name="TEXT">Die Waschmaschine ist fertig</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="telegram" id=":)Sqh|eio_J%+h7Q@6nJ">
+                                                                <field name="INSTANCE"></field>
+                                                                <field name="LOG"></field>
+                                                                <field name="SILENT">FALSE</field>
+                                                                <field name="PARSEMODE">default</field>
+                                                                <value name="MESSAGE">
+                                                                  <shadow type="text" id="zaE.r=+WylppU_4Nmdx~">
+                                                                    <field name="TEXT">Waschmaschine ist fertig</field>
+                                                                  </shadow>
+                                                                  <block type="text_join" id="3,~.TJZeugM.!B%S1^X}">
+                                                                    <mutation items="5"></mutation>
+                                                                    <value name="ADD0">
+                                                                      <block type="text" id="|9?4%ic*sy2}Q088ry:q">
+                                                                        <field name="TEXT">Die Waschmaschine ist Fertig.</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="ADD1">
+                                                                      <block type="time_get" id="a?D^RPe+s+Si=*kkfgj[">
+                                                                        <mutation format="true" language="false"></mutation>
+                                                                        <field name="OPTION">custom</field>
+                                                                        <field name="FORMAT">\n</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="ADD2">
+                                                                      <block type="text" id="grfj-@D75~7#;4n|*Zja">
+                                                                        <field name="TEXT">Dauer: </field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="ADD3">
+                                                                      <block type="variables_get" id="n.X3BE*TU_{qnfXV+E~:">
+                                                                        <field name="VAR" id="=?OmOeJXP(6k$Q8a4v1*" variabletype="">WaMa_Dauerzaehler</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="ADD4">
+                                                                      <block type="text" id="hB0LeD{cRvcWSjG+y.+=">
+                                                                        <field name="TEXT"> Minuten.</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="USERNAME">
+                                                                  <block type="text" id="l]RV+0~qo^KV/:8|+|E9">
+                                                                    <field name="TEXT">Christian, Jana</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </statement>
+                                                <next>
+                                                  <block type="timeouts_settimeout" id=":DTtJMZX*6T[m5$MS#FV">
+                                                    <field name="NAME">timeout3</field>
+                                                    <field name="DELAY">10</field>
+                                                    <field name="UNIT">sec</field>
+                                                    <statement name="STATEMENT">
+                                                      <block type="variables_set" id=",${esm~ZSiljnImc}dcx">
+                                                        <field name="VAR" id="=?OmOeJXP(6k$Q8a4v1*" variabletype="">WaMa_Dauerzaehler</field>
+                                                        <value name="VALUE">
+                                                          <block type="math_number" id=";!%m^7forEuu5xZJ{}fV">
+                                                            <field name="NUM">0</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </statement>
+                                                    <next>
+                                                      <block type="timeouts_setinterval" id="1QU))yM/=xf[czNog?JF">
+                                                        <field name="NAME">Dauerzaehler2</field>
+                                                        <field name="INTERVAL">1</field>
+                                                        <field name="UNIT">min</field>
+                                                        <statement name="STATEMENT">
+                                                          <block type="math_change" id="^n-E*Z:_#,zM7gFwR(5V">
+                                                            <field name="VAR" id="av5B?{]@ba!hn,O4k.?{" variabletype="">WaMa_Aus seit</field>
+                                                            <value name="DELTA">
+                                                              <shadow type="math_number" id="H!-!N4kZhgP#5;zrxCTY">
+                                                                <field name="NUM">1</field>
+                                                              </shadow>
+                                                              <block type="math_number" id="DlZZoFsDRfn]%Y#G$#0s">
+                                                                <field name="NUM">1</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </statement>
+                                                        <next>
+                                                          <block type="comment" id="EpU75C^{~T|u]9x@`!@k">
+                                                            <field name="COMMENT">Alle 60min Erinnerung ans ausräumen, außer nachts.</field>
+                                                            <next>
+                                                              <block type="timeouts_setinterval" id="Oqjga!!3ZZapH@N%KUku">
+                                                                <field name="NAME">Intervall</field>
+                                                                <field name="INTERVAL">60</field>
+                                                                <field name="UNIT">min</field>
+                                                                <statement name="STATEMENT">
+                                                                  <block type="controls_if" id="P~Q5hIH/1JBQn3rXW4.K">
+                                                                    <value name="IF0">
+                                                                      <block type="time_compare_ex" id="pc4,aHj:,x3Oz]Ep-6S6">
+                                                                        <mutation end_time="true" actual_time="true"></mutation>
+                                                                        <field name="USE_ACTUAL_TIME">TRUE</field>
+                                                                        <field name="OPTION">between</field>
+                                                                        <value name="START_TIME">
+                                                                          <shadow type="text" id="_zYH.(fY#+v+x2r3Osw1">
+                                                                            <field name="TEXT">07:00</field>
+                                                                          </shadow>
+                                                                        </value>
+                                                                        <value name="END_TIME">
+                                                                          <shadow type="text" id="DQ{=FIZwVB[x/q]XYM]a">
+                                                                            <field name="TEXT">23:00</field>
+                                                                          </shadow>
+                                                                        </value>
+                                                                      </block>
+                                                                    </value>
+                                                                    <statement name="DO0">
+                                                                      <block type="telegram" id="uzW:PM23Qr0id6d^(*x~">
+                                                                        <field name="INSTANCE"></field>
+                                                                        <field name="LOG"></field>
+                                                                        <field name="SILENT">FALSE</field>
+                                                                        <field name="PARSEMODE">default</field>
+                                                                        <value name="MESSAGE">
+                                                                          <shadow type="text" id="zaE.r=+WylppU_4Nmdx~">
+                                                                            <field name="TEXT">Waschmaschine ist fertig</field>
+                                                                          </shadow>
+                                                                          <block type="text_join" id="3=pnLe}Bas_Z[}KMDvLW">
+                                                                            <mutation items="5"></mutation>
+                                                                            <value name="ADD0">
+                                                                              <block type="text" id="_@lk#{iQbeKX9}W6Re$J">
+                                                                                <field name="TEXT">Die Waschmaschine ist seit: </field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <value name="ADD1">
+                                                                              <block type="variables_get" id="u4$h6MI1~ie8}sS;R#aL">
+                                                                                <field name="VAR" id="av5B?{]@ba!hn,O4k.?{" variabletype="">WaMa_Aus seit</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <value name="ADD2">
+                                                                              <block type="text" id=".WT!m=,7zpDmX#21e/^)">
+                                                                                <field name="TEXT"> Minuten fertig.</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <value name="ADD3">
+                                                                              <block type="text" id="MGD+9f8%kn!^9p!C,UMJ">
+                                                                                <field name="TEXT">Bitte leerräumen</field>
+                                                                              </block>
+                                                                            </value>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="USERNAME">
+                                                                          <block type="text" id="~Tx|#h5:)^$^.suToDtd">
+                                                                            <field name="TEXT">Christian,Jana</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </statement>
+                                                                  </block>
+                                                                </statement>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="controls_if" id="G`-fR1dkB9@qigX)kWh!">
+                                    <value name="IF0">
+                                      <block type="logic_operation" id=";lC;|hO;wpv4_?60?f]B" inline="false">
+                                        <field name="OP">AND</field>
+                                        <comment pinned="false" h="80" w="160">Falls Verbrauch unter 3 Watt fällt und der Modus ist Wahr dann beende den Waschmodus.</comment>
+                                        <value name="A">
+                                          <block type="logic_compare" id="Nf--PSIYh);fDO^YTVfe">
+                                            <field name="OP">GTE</field>
+                                            <value name="A">
+                                              <block type="on_source" id=":8$M!.47-w}Ynqx15yDh">
+                                                <field name="ATTR">state.val</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="math_number" id="-q8EF`V{]yr%BuS-}+I_">
+                                                <field name="NUM">0.1</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="logic_compare" id="e{22[DOfMw/Gr7{l{,#}">
+                                            <field name="OP">EQ</field>
+                                            <value name="A">
+                                              <block type="variables_get" id="oghqsIU8|W.*+O8`;|@!">
+                                                <field name="VAR" id="Hhe!Hg(xh7gHuy(6hLlx" variabletype="">WaMa_EinAus</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="logic_boolean" id=":~5cZHWwV(C6V[KRLupq">
+                                                <field name="BOOL">TRUE</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO0">
+                                      <block type="variables_set" id="5iDu9Th$|iVbBPhCz^Ox">
+                                        <field name="VAR" id="Hhe!Hg(xh7gHuy(6hLlx" variabletype="">WaMa_EinAus</field>
+                                        <value name="VALUE">
+                                          <block type="logic_boolean" id=")0WHD^-5#C0LIqe^r1Hw">
+                                            <field name="BOOL">FALSE</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="timeouts_settimeout" id="))*S~H9%IyJH=KW?3Job">
+                                            <field name="NAME">timeout4</field>
+                                            <field name="DELAY">10</field>
+                                            <field name="UNIT">sec</field>
+                                            <statement name="STATEMENT">
+                                              <block type="variables_set" id="bxrU?/a*S{~;{1B2vbD$">
+                                                <field name="VAR" id="=?OmOeJXP(6k$Q8a4v1*" variabletype="">WaMa_Dauerzaehler</field>
+                                                <value name="VALUE">
+                                                  <block type="math_number" id="/=DTI9A~j5dU^S)U9)Df">
+                                                    <field name="NUM">0</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </statement>
+                                            <next>
+                                              <block type="timeouts_clearinterval" id="?x70V,Ou2y:RefvG@/}G">
+                                                <field name="NAME">Intervall</field>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <variables>
+    <variable type="" id="av5B?{]@ba!hn,O4k.?{">WaMa_Aus seit</variable>
+    <variable type="" id="=?OmOeJXP(6k$Q8a4v1*">WaMa_Dauerzaehler</variable>
+    <variable type="" id="Hhe!Hg(xh7gHuy(6hLlx">WaMa_EinAus</variable>
+    <variable type="undefined" id="Dauerzaehler">Dauerzaehler</variable>
+    <variable type="undefined" id="timeout4">timeout4</variable>
+    <variable type="undefined" id="timeout2">timeout2</variable>
+    <variable type="undefined" id="timeout3">timeout3</variable>
+    <variable type="undefined" id="Dauerzaehler2">Dauerzaehler2</variable>
+    <variable type="undefined" id="Intervall">Intervall</variable>
+  </variables>
+  <block type="comment" id="v(G,}[E5Ni@#c!a~ZHtO" x="113" y="62">
+    <field name="COMMENT">Variablen auf 0</field>
+    <next>
+      <block type="variables_set" id="{;ioa@:Rx#H513M(03#x">
+        <field name="VAR" id="av5B?{]@ba!hn,O4k.?{" variabletype="">WaMa_Aus seit</field>
+        <value name="VALUE">
+          <block type="math_number" id="lz$}6J,d04l#Kc~,nAsp">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="VhvVE3UkVJB2fvjGzu*!">
+            <field name="VAR" id="=?OmOeJXP(6k$Q8a4v1*" variabletype="">WaMa_Dauerzaehler</field>
+            <value name="VALUE">
+              <block type="math_number" id="g,Bx,*s}7,][vN=Z-Mt4">
+                <field name="NUM">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="i@;~wXOo)(5+=$*9v:QF">
+                <field name="VAR" id="Hhe!Hg(xh7gHuy(6hLlx" variabletype="">WaMa_EinAus</field>
+                <value name="VALUE">
+                  <block type="logic_boolean" id="stD7DD67D[4(YSQ3dCvR">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="comment" id="xHL/y73zeyCPFdV!Q$/,">
+                    <field name="COMMENT">Funktion</field>
+                    <next>
+                      <block type="on_ext" id="%l??Ns0%ZOhlZQJn)RIY">
+                        <mutation items="1"></mutation>
+                        <field name="CONDITION">ne</field>
+                        <field name="ACK_CONDITION"></field>
+                        <value name="OID0">
+                          <shadow type="field_oid" id="8p+iN2CjzC1M$2o|Xq=m">
+                            <field name="oid">tuya.0.12716401ecfabc93ce26.105</field>
+                          </shadow>
+                        </value>
+                        <statement name="STATEMENT">
+                          <block type="comment" id="ETx:NXLQw*xvJF}A-#!.">
+                            <field name="COMMENT">Mehr als 1W = an</field>
+                            <next>
+                              <block type="controls_if" id="-4y,4m5H6`8[U,UjJH(0">
+                                <mutation elseif="1"></mutation>
+                                <value name="IF0">
+                                  <block type="logic_operation" id="-^U__L=#GGG_LD~6o~hg" inline="false">
+                                    <field name="OP">AND</field>
+                                    <comment pinned="false" h="90" w="276">Falls Maschinengang erkannt (Wattzahl &gt;10) UND Modus ist auf falsch dann starte und schreibe den aktuellen verbrauch in DP</comment>
+                                    <value name="A">
+                                      <block type="logic_compare" id="-%Kg)H+S;{}Yyd@cqe=l">
+                                        <field name="OP">GTE</field>
+                                        <value name="A">
+                                          <block type="on_source" id="QS5)==Ahwtfe.nNTl`R@">
+                                            <field name="ATTR">state.val</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="math_number" id="OT1x**T)z3hCtGxhqDDI">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="logic_compare" id=",LW+*+gUB/lbO[yiNJdv">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="[$/1md}o9xogfLp*!}WA">
+                                            <field name="VAR" id="Hhe!Hg(xh7gHuy(6hLlx" variabletype="">WaMa_EinAus</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="logic_boolean" id="V}KP*,b;J,.3q802Q0l^">
+                                            <field name="BOOL">FALSE</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="variables_set" id="HHIFm}6:*U#VVrIRv7e|">
+                                    <field name="VAR" id="Hhe!Hg(xh7gHuy(6hLlx" variabletype="">WaMa_EinAus</field>
+                                    <value name="VALUE">
+                                      <block type="logic_boolean" id="%.`!o$LmcZOm0##5WWoJ">
+                                        <field name="BOOL">TRUE</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="comment" id="}tL}a}WCQ(Pe@aIPDV{j">
+                                        <field name="COMMENT">Zählen der Laufzeit</field>
+                                        <next>
+                                          <block type="timeouts_setinterval" id="(?2yHN!soJ=}mLZ7l]lF">
+                                            <field name="NAME">Dauerzaehler</field>
+                                            <field name="INTERVAL">1</field>
+                                            <field name="UNIT">min</field>
+                                            <statement name="STATEMENT">
+                                              <block type="math_change" id="w,FoLyTV8R1TP-!PMN(k">
+                                                <field name="VAR" id="=?OmOeJXP(6k$Q8a4v1*" variabletype="">WaMa_Dauerzaehler</field>
+                                                <value name="DELTA">
+                                                  <shadow type="math_number" id="H!-!N4kZhgP#5;zrxCTY">
+                                                    <field name="NUM">1</field>
+                                                  </shadow>
+                                                  <block type="math_number" id="AF2;r}gdm2RpvV`mn)fr">
+                                                    <field name="NUM">1</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </statement>
+                                            <next>
+                                              <block type="comment" id=";bDFi2n_w~jSUftOdO[f">
+                                                <field name="COMMENT">Stop Timeout-Fertig</field>
+                                                <next>
+                                                  <block type="timeouts_cleartimeout" id="LEz@]enWtD(uB`xDW5`O">
+                                                    <field name="NAME">timeout2</field>
+                                                    <next>
+                                                      <block type="comment" id="j5IPEw}xf;OPVqM(6mls">
+                                                        <field name="COMMENT">Fertig aber nicht aus:</field>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                                <value name="IF1">
+                                  <block type="logic_operation" id="[:7QWv4Op8S6o@lG45(y" inline="false">
+                                    <field name="OP">AND</field>
+                                    <comment pinned="false" h="80" w="160">Falls Verbrauch unter 3 Watt fällt und der Modus ist Wahr dann beende den Waschmodus.</comment>
+                                    <value name="A">
+                                      <block type="logic_operation" id="{/K;~z=Kv#ceeBiW`l_K" inline="false">
+                                        <field name="OP">AND</field>
+                                        <comment pinned="false" h="80" w="160">Falls Verbrauch unter 3 Watt fällt und der Modus ist Wahr dann beende den Waschmodus.</comment>
+                                        <value name="A">
+                                          <block type="logic_compare" id="igy_8vlVI|k$sL-O!_Ya">
+                                            <field name="OP">LT</field>
+                                            <value name="A">
+                                              <block type="on_source" id="oKi^o%$Qa%i0^MVE?s)Y">
+                                                <field name="ATTR">state.val</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="math_number" id="*bx}yjZ_C7J2#/$NzLoS">
+                                                <field name="NUM">1</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="logic_compare" id="A|di)R_@tqCA%RMe|;lO">
+                                            <field name="OP">GT</field>
+                                            <value name="A">
+                                              <block type="on_source" id="5R]%@cw$4LILkJ%LKXEL">
+                                                <field name="ATTR">state.val</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="math_number" id="J8U1UDRMr$7KnC`gf}Ki">
+                                                <field name="NUM">0.1</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="logic_compare" id="}A,!m2TVXL.^LQWg%!e|">
+                                        <field name="OP">EQ</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="r/rnzWL?1!/.2!+pr@5(">
+                                            <field name="VAR" id="Hhe!Hg(xh7gHuy(6hLlx" variabletype="">WaMa_EinAus</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="logic_boolean" id="S,c^%F*KOd(.(Q(BL!=g">
+                                            <field name="BOOL">TRUE</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO1">
+                                  <block type="variables_set" id="vj!Vu=sDr5yt.:ZU#OfU">
+                                    <field name="VAR" id="Hhe!Hg(xh7gHuy(6hLlx" variabletype="">WaMa_EinAus</field>
+                                    <value name="VALUE">
+                                      <block type="logic_boolean" id="5xCJ(QRB3mIo5.*f1Fsg">
+                                        <field name="BOOL">FALSE</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="debug" id="~(eEE8/,iS{wG@j0X)TU">
+                                        <field name="Severity">log</field>
+                                        <value name="TEXT">
+                                          <shadow type="text" id="3K0c5WSS9VmMq/XFB(e9">
+                                            <field name="TEXT">test</field>
+                                          </shadow>
+                                          <block type="text_join" id="2xby$^zDuX^$?-Yp2~k,">
+                                            <mutation items="2"></mutation>
+                                            <value name="ADD0">
+                                              <block type="text" id="L6trfC]%tV;Q1#[_3UQJ">
+                                                <field name="TEXT">Status Waschmaschine Ein/Aus ist: </field>
+                                              </block>
+                                            </value>
+                                            <value name="ADD1">
+                                              <block type="variables_get" id="mN7^USWq(%,us)OL?!1#">
+                                                <field name="VAR" id="Hhe!Hg(xh7gHuy(6hLlx" variabletype="">WaMa_EinAus</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="comment" id="F)K,eLWl2M_R([dyIAP_">
+                                            <field name="COMMENT">Maschine muss 5 Minuten fertig sein</field>
+                                            <next>
+                                              <block type="timeouts_settimeout" id=",NjGW@Wtt+n7RKNkcxK!">
+                                                <field name="NAME">timeout2</field>
+                                                <field name="DELAY">5</field>
+                                                <field name="UNIT">min</field>
+                                                <statement name="STATEMENT">
+                                                  <block type="timeouts_clearinterval" id="4Usl2WULucSJQ,Ptrt9^">
+                                                    <field name="NAME">Dauerzaehler</field>
+                                                    <next>
+                                                      <block type="math_change" id="/fo]TB]=k[`h;vlK7Rl|">
+                                                        <field name="VAR" id="av5B?{]@ba!hn,O4k.?{" variabletype="">WaMa_Aus seit</field>
+                                                        <value name="DELTA">
+                                                          <shadow type="math_number" id="U0:8e}beFtvZW%MRWE/J">
+                                                            <field name="NUM">-5</field>
+                                                          </shadow>
+                                                        </value>
+                                                        <next>
+                                                          <block type="control" id="J*yfAt]vZ5O)I[BX:P?5">
+                                                            <mutation delay_input="false"></mutation>
+                                                            <field name="OID">alexa2.0.Echo-Devices.4e6ce9cd03f54d09a11bd482850c85ea.Commands.speak</field>
+                                                            <field name="WITH_DELAY">FALSE</field>
+                                                            <value name="VALUE">
+                                                              <block type="text" id=",~(ET{+~=VkugD5yaa=b">
+                                                                <field name="TEXT">Die Waschmaschine ist fertig</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="telegram" id=":)Sqh|eio_J%+h7Q@6nJ">
+                                                                <field name="INSTANCE"></field>
+                                                                <field name="LOG"></field>
+                                                                <field name="SILENT">FALSE</field>
+                                                                <field name="PARSEMODE">default</field>
+                                                                <value name="MESSAGE">
+                                                                  <shadow type="text" id="zaE.r=+WylppU_4Nmdx~">
+                                                                    <field name="TEXT">Waschmaschine ist fertig</field>
+                                                                  </shadow>
+                                                                  <block type="text_join" id="3,~.TJZeugM.!B%S1^X}">
+                                                                    <mutation items="5"></mutation>
+                                                                    <value name="ADD0">
+                                                                      <block type="text" id="|9?4%ic*sy2}Q088ry:q">
+                                                                        <field name="TEXT">Die Waschmaschine ist Fertig.</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="ADD1">
+                                                                      <block type="time_get" id="a?D^RPe+s+Si=*kkfgj[">
+                                                                        <mutation format="true" language="false"></mutation>
+                                                                        <field name="OPTION">custom</field>
+                                                                        <field name="FORMAT">\n</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="ADD2">
+                                                                      <block type="text" id="grfj-@D75~7#;4n|*Zja">
+                                                                        <field name="TEXT">Dauer: </field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="ADD3">
+                                                                      <block type="variables_get" id="n.X3BE*TU_{qnfXV+E~:">
+                                                                        <field name="VAR" id="=?OmOeJXP(6k$Q8a4v1*" variabletype="">WaMa_Dauerzaehler</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="ADD4">
+                                                                      <block type="text" id="hB0LeD{cRvcWSjG+y.+=">
+                                                                        <field name="TEXT"> Minuten.</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="USERNAME">
+                                                                  <block type="text" id="l]RV+0~qo^KV/:8|+|E9">
+                                                                    <field name="TEXT">Christian, Jana</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </statement>
+                                                <next>
+                                                  <block type="timeouts_settimeout" id=":DTtJMZX*6T[m5$MS#FV">
+                                                    <field name="NAME">timeout3</field>
+                                                    <field name="DELAY">10</field>
+                                                    <field name="UNIT">sec</field>
+                                                    <statement name="STATEMENT">
+                                                      <block type="variables_set" id=",${esm~ZSiljnImc}dcx">
+                                                        <field name="VAR" id="=?OmOeJXP(6k$Q8a4v1*" variabletype="">WaMa_Dauerzaehler</field>
+                                                        <value name="VALUE">
+                                                          <block type="math_number" id=";!%m^7forEuu5xZJ{}fV">
+                                                            <field name="NUM">0</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </statement>
+                                                    <next>
+                                                      <block type="timeouts_setinterval" id="1QU))yM/=xf[czNog?JF">
+                                                        <field name="NAME">Dauerzaehler2</field>
+                                                        <field name="INTERVAL">1</field>
+                                                        <field name="UNIT">min</field>
+                                                        <statement name="STATEMENT">
+                                                          <block type="math_change" id="^n-E*Z:_#,zM7gFwR(5V">
+                                                            <field name="VAR" id="av5B?{]@ba!hn,O4k.?{" variabletype="">WaMa_Aus seit</field>
+                                                            <value name="DELTA">
+                                                              <shadow type="math_number" id="H!-!N4kZhgP#5;zrxCTY">
+                                                                <field name="NUM">1</field>
+                                                              </shadow>
+                                                              <block type="math_number" id="DlZZoFsDRfn]%Y#G$#0s">
+                                                                <field name="NUM">1</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </statement>
+                                                        <next>
+                                                          <block type="comment" id="EpU75C^{~T|u]9x@`!@k">
+                                                            <field name="COMMENT">Alle 60min Erinnerung ans ausräumen, außer nachts.</field>
+                                                            <next>
+                                                              <block type="timeouts_setinterval" id="Oqjga!!3ZZapH@N%KUku">
+                                                                <field name="NAME">Intervall</field>
+                                                                <field name="INTERVAL">60</field>
+                                                                <field name="UNIT">min</field>
+                                                                <statement name="STATEMENT">
+                                                                  <block type="controls_if" id="P~Q5hIH/1JBQn3rXW4.K">
+                                                                    <value name="IF0">
+                                                                      <block type="time_compare_ex" id="pc4,aHj:,x3Oz]Ep-6S6">
+                                                                        <mutation end_time="true" actual_time="true"></mutation>
+                                                                        <field name="USE_ACTUAL_TIME">TRUE</field>
+                                                                        <field name="OPTION">between</field>
+                                                                        <value name="START_TIME">
+                                                                          <shadow type="text" id="_zYH.(fY#+v+x2r3Osw1">
+                                                                            <field name="TEXT">07:00</field>
+                                                                          </shadow>
+                                                                        </value>
+                                                                        <value name="END_TIME">
+                                                                          <shadow type="text" id="DQ{=FIZwVB[x/q]XYM]a">
+                                                                            <field name="TEXT">23:00</field>
+                                                                          </shadow>
+                                                                        </value>
+                                                                      </block>
+                                                                    </value>
+                                                                    <statement name="DO0">
+                                                                      <block type="telegram" id="uzW:PM23Qr0id6d^(*x~">
+                                                                        <field name="INSTANCE"></field>
+                                                                        <field name="LOG"></field>
+                                                                        <field name="SILENT">FALSE</field>
+                                                                        <field name="PARSEMODE">default</field>
+                                                                        <value name="MESSAGE">
+                                                                          <shadow type="text" id="zaE.r=+WylppU_4Nmdx~">
+                                                                            <field name="TEXT">Waschmaschine ist fertig</field>
+                                                                          </shadow>
+                                                                          <block type="text_join" id="3=pnLe}Bas_Z[}KMDvLW">
+                                                                            <mutation items="5"></mutation>
+                                                                            <value name="ADD0">
+                                                                              <block type="text" id="_@lk#{iQbeKX9}W6Re$J">
+                                                                                <field name="TEXT">Die Waschmaschine ist seit: </field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <value name="ADD1">
+                                                                              <block type="variables_get" id="u4$h6MI1~ie8}sS;R#aL">
+                                                                                <field name="VAR" id="av5B?{]@ba!hn,O4k.?{" variabletype="">WaMa_Aus seit</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <value name="ADD2">
+                                                                              <block type="text" id=".WT!m=,7zpDmX#21e/^)">
+                                                                                <field name="TEXT"> Minuten fertig.</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <value name="ADD3">
+                                                                              <block type="text" id="MGD+9f8%kn!^9p!C,UMJ">
+                                                                                <field name="TEXT">Bitte leerräumen</field>
+                                                                              </block>
+                                                                            </value>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="USERNAME">
+                                                                          <block type="text" id="~Tx|#h5:)^$^.suToDtd">
+                                                                            <field name="TEXT">Christian,Jana</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </statement>
+                                                                  </block>
+                                                                </statement>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="controls_if" id="G`-fR1dkB9@qigX)kWh!">
+                                    <value name="IF0">
+                                      <block type="logic_operation" id=";lC;|hO;wpv4_?60?f]B" inline="false">
+                                        <field name="OP">AND</field>
+                                        <comment pinned="false" h="80" w="160">Falls Verbrauch unter 3 Watt fällt und der Modus ist Wahr dann beende den Waschmodus.</comment>
+                                        <value name="A">
+                                          <block type="logic_compare" id="Nf--PSIYh);fDO^YTVfe">
+                                            <field name="OP">GTE</field>
+                                            <value name="A">
+                                              <block type="on_source" id=":8$M!.47-w}Ynqx15yDh">
+                                                <field name="ATTR">state.val</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="math_number" id="-q8EF`V{]yr%BuS-}+I_">
+                                                <field name="NUM">0.1</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="logic_compare" id="e{22[DOfMw/Gr7{l{,#}">
+                                            <field name="OP">EQ</field>
+                                            <value name="A">
+                                              <block type="variables_get" id="oghqsIU8|W.*+O8`;|@!">
+                                                <field name="VAR" id="Hhe!Hg(xh7gHuy(6hLlx" variabletype="">WaMa_EinAus</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="logic_boolean" id=":~5cZHWwV(C6V[KRLupq">
+                                                <field name="BOOL">TRUE</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO0">
+                                      <block type="variables_set" id="5iDu9Th$|iVbBPhCz^Ox">
+                                        <field name="VAR" id="Hhe!Hg(xh7gHuy(6hLlx" variabletype="">WaMa_EinAus</field>
+                                        <value name="VALUE">
+                                          <block type="logic_boolean" id=")0WHD^-5#C0LIqe^r1Hw">
+                                            <field name="BOOL">FALSE</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="timeouts_settimeout" id="))*S~H9%IyJH=KW?3Job">
+                                            <field name="NAME">timeout4</field>
+                                            <field name="DELAY">10</field>
+                                            <field name="UNIT">sec</field>
+                                            <statement name="STATEMENT">
+                                              <block type="variables_set" id="bxrU?/a*S{~;{1B2vbD$">
+                                                <field name="VAR" id="=?OmOeJXP(6k$Q8a4v1*" variabletype="">WaMa_Dauerzaehler</field>
+                                                <value name="VALUE">
+                                                  <block type="math_number" id="/=DTI9A~j5dU^S)U9)Df">
+                                                    <field name="NUM">0</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </statement>
+                                            <next>
+                                              <block type="timeouts_clearinterval" id="?x70V,Ou2y:RefvG@/}G">
+                                                <field name="NAME">Intervall</field>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>
